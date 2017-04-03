@@ -1,0 +1,34 @@
+DOMAINS
+	kuliah=kuliah(symbol,symbol,symbol,integer)%fakta kuliah memiliki nilai kuliah di dalamnya dimana ada 3 tipe data symbildan 1 tipe data integer
+	kb=ai(symbol,string,integer,symbol)	%fakta kb memiliki nilai ai yang memiliki 2 symbol,1 string, 1 integer
+	pde=pde(symbol,string,integer,symbol)	%fakta pde memiliki nilai ppde di dalamnya yang memiliki 2 symbol,1 string, 1 integer
+	tam=tam(symbol,string,integer,symbol)	%fakta tam memiliki nilai tam di dalamnya yang memiliki 2 symbol,1 string, 1 integer
+	
+PREDICATES
+	nondeterm jenis_kuliah(kuliah)	%jenis kuliah memiliki nilai kuliah di dalamnya
+	nondeterm intelejensi_Buatan(kb) %intelejensi buatan memiliki nilai kb di dalamnya
+	nondeterm kuliah_pde(pde)	%kuliah pde memiliki nilai pde di dalamnya
+	nondeterm kuliah_tam(tam)	%kuliah tam memiliki nilai tam di dalamnya
+	
+CLAUSES
+
+	jenis_kuliah(kuliah("Intelejensi Buatan","Abdul Kadir","Manajemen Informatika", 1)). %matakuliah intelejensi buatatan di ajari oleh dosen abdul kadir dari prodi menejemen infprmatika di ruangan 1
+	jenis_kuliah(kuliah("PDE","Indra Yatini","Teknik Informatika", 2)).			%matakuliah pde di ajari oleh dosen indra yatini dari prodi tekhnik informatika di ruang 2
+	jenis_kuliah(kuliah("Teknik Antar Muka","Sigit Anggoro","Teknik Komputer", 3)).		%matakuliah teknik antar muka di ajari oleh dosen sigit arianto dari prodi tekhnik informatika di ruangan 3
+	
+	intelejensi_Buatan(ai("Sugeng Riyadi",pria,2002001,"Jl. Sudirman No.2 , Pontianak, Kalimantan Barat")). %sugeng riyadi mengambil matkul ai dia adalah seorang pria dengan NIM 2002001 dan tinggal di jalan Jl. Sudirman No.2 di pontianak kalimantan barat
+	intelejensi_Buatan(ai("Yulia Sugondo",wanita,2002002,"Jl. A. Yani No. 10 , Klaten, Jawa Tengah")).	%yuliah sugondo mengambil matkul ai dia adalah seorang wanita dengan NIM 2002002 tinggl di Jl. A. Yani No. 10 klaten jawa barat
+	intelejensi_Buatan(ai("Budiman Sejati",pria,2002003,"Jl. Slamet Riyadi No. 45 , Solo, Jawa Tengah")).	%budiman sejati mengambil matkul ai dia adalah seorang pria dengan nim 2002003 dan tinggal di Jl. Slamet Riyadi No. 45 solo jawa barat
+	
+	kuliah_pde(pde("Laksamana Sukardi",pria,2002004, "Jl. MT Haryono NO. 10, Palembang, Sumatera Selatan")). %laksamana sukardi mengambil matkul pde dia adalah seorang pria dengan NIM 2002004 dia tinggal di Jl. MT Haryono NO. 10 palembang sumatra selatan 
+	kuliah_pde(pde("Rini Suwandi",wanita,2002005, "Jl. Letjen Suprapto NO. 12, Surabaya, Jawa Timur")).	%rini suwandi mengambil matkul pde dia adalah seorang wanita dengan NIM 2002005 dia tinggal di jalan Jl. Letjen Suprapto NO. 12 surabaya jawa timur
+	kuliah_pde(pde("Kwik Kian Gie",pria,2002006, "Jl. WR Supratman NO. 100, Makassar, Sulawesi Selatan")).	%kiwik gian gie mengambil matkul pde dia adalah seorang wanita dengan NIM 2002006 dia tinggal di jalan Jl. WR Supratman NO. 100 makassar sulawesi selatan
+	
+	kuliah_tam(tam("Riri Reza", pria, 2002007,"JL. WR Mongsidi No. 30,Purwokerto, Jawa Tengah")).%riri reza mengambil matkul tam dia adalah seorang pria dengan NIM 2002007 dia tinggal di JL. WR Mongsidi No. 30,Purwokerto, Jawa Tengah
+	kuliah_tam(tam("Rachel Maryam", wanita, 2002008,"JL. Otista No. 112,Bandung, Jawa Barat")).%richel maryam mengambil matkul tam dia adalah seorang wanita  dengan NIM 2002008 dia tinggal di JL. Otista No. 112,Bandung, Jawa Barat
+	kuliah_tam(tam("Garin Nugroho", pria, 2002009,"JL. Tanjung Pura No. 101,Jaya Pura, Papua")).%Garin nugroho mengambil matkul tam dia adalah seorang pria dengan NIM 2002009 dia tinggal di JL. Tanjung Pura No. 101,Jaya Pura, Papua
+	
+GOAL
+	jenis_kuliah(kuliah("Intelejensi Buatan", Dosen,Studi, Ruang)), intelejensi_buatan(ai(Nama,Jenis_kelamin,No_Induk_Mahasiswa, Alamat)). %akan menampilkan semua nama yang mengambil matkul intelejensi buatan dan menampilkan nama dosen, ruang kuliah, alamat asal mahasiswa.
+	
+	%jenis_kuliah(kuliah(Mata_kuliah, Dosen,_,1)),intelejensi_Buatan(ai(Nama,_,NoInduk, Mahasiswa,_));jenis_kuliah(kuliah(Mata_kuliah, Dosen,_,2)),kuliah_pde(pde(Nama,_,NoInduk, Mahasiswa,_));jenis_kuliah(kuliah(Mata_kuliah, Dosen,_,3)),kuliah_tam(tam(Mhs,_,NoInduk, Mahasiswa,_)). %menampulkan nama mahasiswa yang mengambil 3 matkul beserta ruang dan nama dosen
